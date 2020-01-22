@@ -28,9 +28,9 @@ final class CreateArrayChar {
             }
          }
          outputArray(array);
-         inputValid();
-//         if (inputValid().equals(A))strategyA(array);
-//         else strategyB(array);
+         String chois = inputValid();
+         if (chois.equals(A))strategyA(array);
+         else strategyB(array);
     }
 
     private void outputArray(char[][]array) {
@@ -62,21 +62,21 @@ final class CreateArrayChar {
 
     //*_*_*
     private void strategyA (char [][] array){
-        String stringA = null;
-        for (int i = 0; i < array.length; i =+ 2) {
-            for (int j = 0; j < array[i].length; j =+ 2) {
-                stringA = stringA.concat(String.valueOf(array[i][j]));
+        int i = 0;
+        String stringA = new String();
+        for (char [] ar : array) {
+            for (char ch : ar) {
+                if (i == 0) {
+                    stringA = stringA.concat(String.valueOf(ch));
+                    i++;
+                }else i--;
             }
         }
+        System.out.println(stringA);
+
     }
     //_*_*_
     private void strategyB(char[][] array){
-        for (int i = 0; i < array.length; i =+ 2) {
-            for (int j = 0; j < array[i].length; j =+ 2) {
-                System.out.print(" " + array[i][j] + " ");
-            }
-            System.out.println();
-        }
     }
 
     public static int getStartRange() {

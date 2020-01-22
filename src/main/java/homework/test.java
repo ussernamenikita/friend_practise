@@ -1,17 +1,20 @@
 package homework;
 
-import java.util.Scanner;
 
 public class test {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите строку:");
-        String a = sc.nextLine();
-        System.out.println("строка - " + a);
-        System.out.println("Введите число: ");
-        int b = sc.nextInt();
-        System.out.println("число - " + b);
+        int arr [] []  = {{1,2,3,4,5,6,7,8,9,10},{1,2,3,4,5,6,7,8,9,10}};
+        int i = 0;
+        for (int x[] : arr) {
+           for (int y : x){
+                if (i == 0){
+                    System.out.println(y);
+                    i++;
+                }
+                else i--;
+           }
+        }
     }
 
 }
