@@ -18,16 +18,7 @@ final class CreateArrayChar {
         genArray(num1, num2);
     }
 
-    public static int getStartRange() {
-        return startRange;
-    }
-
-    public static int getFinishRange() {
-        return finishRange;
-    }
-
     private void genArray(int num1, int num2) {
-        Strategy strategy = new Strategy();
         Random random = new Random();
         char[][] array = new char[num1][num2];
         for (int i = 0; i < array.length; i++) {
@@ -37,9 +28,6 @@ final class CreateArrayChar {
             }
         }
         outputArray(array);
-        String chois = inputValid();
-        if (chois.equals(A)) strategy.strategy(array,0);
-        else strategy.strategy(array,1);
     }
 
     private void outputArray(char[][] array) {
@@ -49,22 +37,32 @@ final class CreateArrayChar {
             }
             System.out.println();
         }
+        choiceStrategy(array);
+    }
+
+    private void choiceStrategy(char[][] array){
+        Strategy strategy = new Strategy();
+        String chois = inputValid();
+        if (chois.equals(A)) strategy.strategy(array,0);
+        else strategy.strategy(array,1);
     }
 
     private String inputValid() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Выбере стратегию вывода на экран (A or B): ");
-        String choise = sc.nextLine();
+        String choice = sc.nextLine();
         for (int i = 0; i != 1; ) {
-            if (choise.equals(A) | choise.equals(B)) i = 1;
+            if (choice.equals(A) | choice.equals(B)) i = 1;
             else {
                 System.out.println("Ошибка! Наберите прописную" +
                         " букву латинского алфавита ( A or B) :");
-                choise = sc.nextLine();
+                choice = sc.nextLine();
             }
         }
-        return choise;
+        return choice;
     }
+
+
 
     public int getNum1() {
         return num1;
@@ -72,6 +70,14 @@ final class CreateArrayChar {
 
     public int getNum2() {
         return num2;
+    }
+
+    public static int getStartRange() {
+        return startRange;
+    }
+
+    public static int getFinishRange() {
+        return finishRange;
     }
 
 }

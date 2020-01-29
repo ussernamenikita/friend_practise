@@ -11,13 +11,12 @@ public class Strategy {
 
     public void strategy(char[][]arr, int num) {
         String arrToStr = new String();
-        int i = num;
         for (char[] ar : arr) {
             for (char ch : ar) {
-                if (i == 0) {
+                if (num == 0) {
                     arrToStr = arrToStr.concat(String.valueOf(ch));
-                    i++;
-                } else i--;
+                    num++;
+                } else num--;
             }
         }
         inputScreen(arrToStr);
