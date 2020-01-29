@@ -25,7 +25,7 @@ public class Strategy {
                 } else num--;
             }
         }
-        inputScreen(arrToStr);
+        outputScreen(arrToStr);
     }
 
     private String inputValid() {
@@ -43,7 +43,7 @@ public class Strategy {
         return choice;
     }
 
-    private void inputScreen(String arrToStr){
+    private void outputScreen(String arrToStr){
         System.out.println(arrToStr);
     }
 }
