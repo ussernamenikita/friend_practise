@@ -11,8 +11,8 @@ public class Main {
         int num1 = sc.nextInt();
         int num2 = sc.nextInt();
         CreateArrayChar arr = new CreateArrayChar(num1, num2);
-        System.out.println("Задайте размер пирамидки: ");
-        int sizPir = sc.nextInt();
+//        System.out.println("Задайте размер пирамидки: ");
+//        int sizPir = sc.nextInt();
     }
 
 }

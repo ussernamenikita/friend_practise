@@ -27,6 +27,7 @@ final class CreateArrayChar {
     }
 
     private void genArray(int num1, int num2) {
+        Strategy strategy = new Strategy();
         Random random = new Random();
         char[][] array = new char[num1][num2];
         for (int i = 0; i < array.length; i++) {
@@ -37,8 +38,8 @@ final class CreateArrayChar {
         }
         outputArray(array);
         String chois = inputValid();
-        if (chois.equals(A)) strategyA(array);
-        else strategyB(array);
+        if (chois.equals(A)) strategy.strategy(array,0);
+        else strategy.strategy(array,1);
     }
 
     private void outputArray(char[][] array) {
@@ -63,37 +64,6 @@ final class CreateArrayChar {
             }
         }
         return choise;
-    }
-
-    //*_*_*
-    private void strategyA(char[][] array) {
-        int i = 0;
-        String stringA = new String();
-        for (char[] ar : array) {
-            for (char ch : ar) {
-                if (i == 0) {
-                    stringA = stringA.concat(String.valueOf(ch));
-                    i++;
-                } else i--;
-            }
-        }
-        System.out.println(stringA);
-    }
-
-    //_*_*_
-    private void strategyB(char[][] array) {
-        int i = 1;
-        String stringB = new String();
-        for (char[] ar : array) {
-            for (char ch : ar) {
-                if (i == 0) {
-                    stringB = stringB.concat(String.valueOf(ch));
-                    i++;
-                } else i--;
-            }
-        }
-        System.out.println(stringB);
-
     }
 
     public int getNum1() {
