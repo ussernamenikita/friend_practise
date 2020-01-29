@@ -1,4 +1,4 @@
-package homework.task1;
+package homework.task_1_2;
 
 public class Piramidka {;
 
