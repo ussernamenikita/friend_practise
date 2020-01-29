@@ -1,12 +1,16 @@
 package homework.task1;
 
-public class Piramidka {
-    private int size1;
-    private int size2;
+public class Piramidka {;
 
-    public Piramidka(int size1, int size2) {
-        this.size1 = size1;
-        this.size2 = size2;
-
+    public Piramidka(int num) {
+        String symbol = "*";
+        int count = 0;
+        for (int i = 0; i < num; i++) {
+            for (int n = 0; n < num - count; n++) {
+                System.out.print(symbol);
+            }
+            System.out.println();
+            count++;
+        }
     }
 }

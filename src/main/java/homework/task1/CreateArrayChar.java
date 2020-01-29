@@ -42,17 +42,17 @@ final class CreateArrayChar {
 
     private void choiceStrategy(char[][] array){
         Strategy strategy = new Strategy();
-        String chois = inputValid();
+        System.out.println("Выбере стратегию вывода на экран (A or B): ");
+        String chois = valid();
         if (chois.equals(A)) strategy.strategy(array,0);
         else strategy.strategy(array,1);
     }
 
-    private String inputValid() {
+    private String valid() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Выбере стратегию вывода на экран (A or B): ");
         String choice = sc.nextLine();
         for (int i = 0; i != 1; ) {
-            if (choice.equals(A) | choice.equals(B)) i = 1;
+            if (choice.equals(A) | choice.equals(B)) i = 1; // непонятный баг
             else {
                 System.out.println("Ошибка! Наберите прописную" +
                         " букву латинского алфавита ( A or B) :");
