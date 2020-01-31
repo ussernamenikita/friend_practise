@@ -7,12 +7,13 @@ public class Text {
     String text1 = "Выберите стратегию вывода:\n \"нечетная\" - 0 \n \"четная\" - 1";
     String text2 = "Не верно, попробуйте еще раз (\"нечетная\" - 0, \"четная\" - 1): ";
     String finalString = new String();
+    String received = new String();
     int num;
 
     public void inputText() {
         Scanner sc = new Scanner(System.in);
         System.out.println(text);
-        String received = sc.nextLine();
+        received = sc.nextLine();
         System.out.println(text1);
         num = sc.nextInt();
         while (num > 1){
