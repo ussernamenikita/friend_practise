@@ -7,8 +7,6 @@ import java.util.Scanner;
 final class CreateArrayChar {
     private static int startRange = 33;
     private static int finishRange = 94;
-    private static String A = "A";
-    private static String B = "B";
     private int num1;
     private int num2;
 
@@ -31,37 +29,15 @@ final class CreateArrayChar {
     }
 
     private void outputArray(char[][] array) {
+        Strategy strat = new Strategy();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 System.out.print(" " + array[i][j] + " ");
             }
             System.out.println();
         }
-        choiceStrategy(array);
+        strat.strategy(array);
     }
-
-    private void choiceStrategy(char[][] array){
-        Strategy strategy = new Strategy();
-        System.out.println("Выбере стратегию вывода на экран (A or B): ");
-        String chois = valid();
-        if (chois.equals(A)) strategy.strategy(array,0);
-        else strategy.strategy(array,1);
-    }
-
-    private String valid() {
-        Scanner sc = new Scanner(System.in);
-        String choice = sc.nextLine();
-        for (int i = 0; i != 1; ) {
-            if (choice.equals(A) | choice.equals(B)) i = 1; // непонятный баг
-            else {
-                System.out.println("Ошибка! Наберите прописную" +
-                        " букву латинского алфавита ( A or B) :");
-                choice = sc.nextLine();
-            }
-        }
-        return choice;
-    }
-
 
 
     public int getNum1() {
