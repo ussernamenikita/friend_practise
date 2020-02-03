@@ -5,25 +5,20 @@ import java.util.Scanner;
 public class Recursion {
     Scanner sc = new Scanner(System.in);
 
-    public int exponentiation() {
-        int num;
-        int exp;
+    public int exponentiation(int num, int exp) {
         int result;
-        System.out.println("Введите число: ");
-        num = sc.nextInt();
-        System.out.println("Введите степень:");
-        exp = sc.nextInt();
         result = (int) Math.pow(num, exp);
         return result;
     }
 
-    public int countsNum (){
-        int num;
-        int result;
-        System.out.println("Введите число:");
-        num = sc.nextInt();
+    public int fibonachi(int ind) {
+        if (ind <= 0) return 0;
+        if (ind == 1 || ind == 2) return 1;
+        return fibonachi(ind - 1) + fibonachi(ind - 2);
+    }
 
-
+    public int countsNum (int num){
+        int result = String.valueOf(Math.abs(num)).length();
         return result;
     }
 }
