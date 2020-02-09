@@ -6,19 +6,15 @@ import java.util.Scanner;
 public class ProcessedString {
     private int num;
     private final String ERROR_STR = "Не верно, попробуйте еще раз (\"нечетная\" - 0, \"четная\" - 1): ";
-    public String received;
+    public static String received;
     Scanner sc = new Scanner(System.in);
 
-    public ProcessedString() {
-        getString();
-    }
 
     public void getString() {
         String textGetStr = "Введите текст: ";
 
         System.out.println(textGetStr);
         received = sc.nextLine();
-
         getSelectionNumber();
         checkNumber();
         buildStringByStrategy(received);
@@ -37,7 +33,6 @@ public class ProcessedString {
                 sc.next();
             }
         }
-
     }
 
     private void checkNumber() {

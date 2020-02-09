@@ -11,21 +11,22 @@ public class ChangeableStr {
     Scanner sc = new Scanner(System.in);
 
     public ChangeableStr() {
-        ProcessedString ps = new ProcessedString();
-        stringIndGen(ps.received);
     }
 
+//Todo 0 index - 1
 
-    public void stringIndGen(String str) {
+    public void stringIndGen() {
         String modifiedStr = "";
-        char indexChar;
+        char charByIndex;
+        ProcessedString ps = new ProcessedString();
+        String str = ps.received;
 
         while (true) {
             index = checkIndex();
             if (index == 666) break;
-            if (index > (str.length() - 1)) verifyIndex(str);
-            indexChar = str.charAt(index);
-            modifiedStr = modifiedStr.concat(String.valueOf(indexChar));
+            if (index > (str.length() - 1)) verifyLengthIndex(str);
+            charByIndex = str.charAt(index);
+            modifiedStr = modifiedStr.concat(String.valueOf(charByIndex));
             System.out.println(modifiedStr);
         }
 
@@ -40,7 +41,7 @@ public class ChangeableStr {
         System.out.println(textGetIndex);
         while (true) {
             try {
-                int index = sc.nextInt();
+                index = sc.nextInt();
                 break;
             } catch (InputMismatchException e) {
                 System.out.println(errGetIndex);
@@ -50,16 +51,16 @@ public class ChangeableStr {
         return index;
     }
 
-    private void verifyIndex(String text) {
+    private void verifyLengthIndex(String str) {
         String tooMany = "Слишком большое число, попробуйте не больше ";
         while (true) {
-            System.out.println(tooMany + (text.length() - 1));
+            System.out.println(tooMany + (str.length() - 1));
             index = sc.nextInt();
             if (index == 666) break;
-            if (index < (text.length())) break;
+            if (index < (str.length())) break;
         }
     }
-
+//todo 1 обработать ошибку (String index out of range)
     private String spoofChar(String text) {
         StringBuilder stringForSpoof = new StringBuilder(text);
         Scanner sc = new Scanner(System.in);
