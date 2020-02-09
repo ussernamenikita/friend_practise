@@ -5,26 +5,34 @@ import java.util.Scanner;
 
 public class EnterData {
     Scanner sc = new Scanner(System.in);
-    private int number = 0;
+    private int size = 0;
     private final String TEXT_ERR_GET_NUM = "Ошибка! Попробуйте арабские цифры...";
 
 
     public int getNumbersForSizeArray() {
+        outputTextForGetSize();
+
+        while (true) {
+            try {
+                size = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.err.println(TEXT_ERR_GET_NUM);
+                sc.next();
+            }
+        }
+        return size;
+    }
+
+    private void outputTextForGetSize() {
         String textFirstArrNum = "Введите размер основного массива: ";
         String textNestedArrNum = "Введите размер вложенного массива: ";
 
-        if (number == 0) {
+        if (size == 0) {
             System.out.println(textFirstArrNum);
         } else {
             System.out.println(textNestedArrNum);
         }
-        try {
-            number = sc.nextInt();
-        } catch (InputMismatchException e) {
-            System.err.println(TEXT_ERR_GET_NUM);
-            getNumbersForSizeArray(); //TODO 0 обработать ошибку с после не правильного символа
-        }
-        return number;
     }
 
     public String choiceStrategyOutput() {
@@ -49,14 +57,17 @@ public class EnterData {
 
     public int getNumberForSizePyramid() {
         String textSizePyr = "Введите размер пирамидки: ";
-        int size = 0;
+        int size;
         System.out.println(textSizePyr);
 
-        try {
-            size = sc.nextInt();
-        } catch (Exception e) {
-            System.out.println(TEXT_ERR_GET_NUM);
-            getNumbersForSizeArray(); //TODO 1 обработать ошибку с после не правильного символа
+        while (true) {
+            try {
+                size = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.err.println(TEXT_ERR_GET_NUM);
+                sc.next();
+            }
         }
         return size;
     }
