@@ -11,12 +11,12 @@ public class StringIndex {
 
     public void stringIndGen(String text) {
         String indextext = "Введите индекс (введите 666, что бы выйти):";
-        String outputString = new String();
+        String outputString = "";
         char indexChar;
         while (true) {
             System.out.println(indextext);
             index = sc.nextInt();
-            if (index > (text.length()-1))verifyIndex(text);
+            if (index > (text.length() - 1)) verifyIndex(text);
             if (index == 666) break;
             indexChar = text.charAt(index);
             outputString = outputString.concat(String.valueOf(indexChar));
@@ -26,15 +26,21 @@ public class StringIndex {
         System.out.println(reverseString(text));
     }
 
-    private void verifyIndex( String text) {
+    private void verifyIndex(String text) {
         String tooMany = "Слишком большое число, попробуйте не больше ";
         while (true) {
-            System.out.println(tooMany + (text.length()-1));
+            System.out.println(tooMany + (text.length() - 1));
             index = sc.nextInt();
+            if (index == 666) break;
             if (index < (text.length())) break;
         }
     }
 
+    /**
+     *
+     * @param text
+     * @return
+     */
     private String spoofChar(String text) {
         StringBuilder stringForSpoof = new StringBuilder(text);
         Scanner sc = new Scanner(System.in);

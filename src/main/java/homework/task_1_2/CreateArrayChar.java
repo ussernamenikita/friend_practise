@@ -1,23 +1,28 @@
 package homework.task_1_2;
 
-
 import java.util.Random;
 import java.util.Scanner;
 
 final class CreateArrayChar {
     private static int startRange = 33;
     private static int finishRange = 94;
-    private int num1;
-    private int num2;
 
-    public CreateArrayChar(int num1, int num2) {
-        this.num1 = num1;
-        this.num2 = num2;
-        genArray(num1, num2);
+    public CreateArrayChar() {
+        genArray();
     }
 
-    private void genArray(int num1, int num2) {
+    private void genArray() {
+        Scanner sc = new Scanner(System.in);
         Random random = new Random();
+        int num1 = 0;
+        int num2 = 0;
+        System.out.println("Задайте размеры двух массивов: ");
+        try {
+            num1 = sc.nextInt();
+            num2 = sc.nextInt();
+        } catch (Exception e) {
+            genArray();
+        }
         char[][] array = new char[num1][num2];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -39,14 +44,6 @@ final class CreateArrayChar {
         strat.strategy(array);
     }
 
-
-    public int getNum1() {
-        return num1;
-    }
-
-    public int getNum2() {
-        return num2;
-    }
 
     public static int getStartRange() {
         return startRange;

@@ -2,6 +2,7 @@ package homework.task_1_2;
 
 import java.util.Scanner;
 
+
 public class Strategy {
     /*
 
@@ -36,8 +37,8 @@ public class Strategy {
         Scanner sc = new Scanner(System.in);
         System.out.println("Выбере стратегию вывода на экран (A or B): ");
         String choice = sc.nextLine();
-        for (int i = 0; i != 1; ) {
-            if (choice.equals(A) || choice.equals(B)) i = 1;
+        for (; ; ) {
+            if (choice.equals(A) || choice.equals(B)) break;
             else {
                 System.out.println("Ошибка! Наберите прописную" +
                         " букву латинского алфавита ( A or B) :");
