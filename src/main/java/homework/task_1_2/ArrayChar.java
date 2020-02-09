@@ -1,50 +1,72 @@
 package homework.task_1_2;
 
 import java.util.Random;
-import java.util.Scanner;
 
 final class ArrayChar {
-    private static int startRange = 33;
-    private static int finishRange = 94;
+    private final int START_RANGE = 33;
+    private final int FINISH_RANGE = 94;
+    EnterData ed = new EnterData();
 
     public ArrayChar() {
-        genArray();
+        getSizeArrays();
     }
 
-    private void genArray() {
-        EnterData ed = new EnterData();
+
+    private void getSizeArrays() {
+        int size = ed.getNumbersForSizeArray();
+        int size1 = ed.getNumbersForSizeArray();
+        char[][] array = new char[size][size1];
+
+        completionArray(array);
+    }
+
+    private void completionArray(char[][] array) {
         Random random = new Random();
-        int num1 = ed.gettingNumbersForSizeArray();
-        int num2 = ed.gettingNumbersForSizeArray();
-        char[][] array = new char[num1][num2];
+
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                char symbol = (char) (random.nextInt(finishRange) + startRange);
+                char symbol = (char) (random.nextInt(FINISH_RANGE) + START_RANGE);
                 array[i][j] = symbol;
             }
         }
-        outputArray(array);
+        outputArrayToScreen(array);
     }
 
-    private void outputArray(char[][] array) {
-        Strategy strat = new Strategy();
+    private void outputArrayToScreen(char[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 System.out.print(" " + array[i][j] + " ");
             }
             System.out.println();
         }
-        strat.strategy(array);
+        outputStringByStrategy(array);
     }
 
+    private void outputStringByStrategy(char[][] arr) {
+        String choice = ed.choiceStrategyOutput();
+        String arrToStr = "";
+        int num = numberCycle(choice);
 
-    public static int getStartRange() {
-        return startRange;
+        for (char[] ar : arr) {
+            for (char ch : ar) {
+                if (num == 0) {
+                    arrToStr = arrToStr.concat(String.valueOf(ch));
+                    num++;
+                } else {
+                    num--;
+                }
+            }
+        }
+        System.out.println(arrToStr);
     }
 
-    public static int getFinishRange() {
-        return finishRange;
+    private int numberCycle(String choice) {
+        String checkSymbol = "A";
+        int num = 0;
+        if (choice.equals(checkSymbol)) num = 1;
+        return num;
     }
+
 
 }
 
