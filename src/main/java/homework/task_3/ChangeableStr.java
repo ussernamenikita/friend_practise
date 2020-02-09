@@ -2,28 +2,52 @@ package homework.task_3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class StringIndex {
-    int index;
+public class ChangeableStr {
+
+    private int index;
     Scanner sc = new Scanner(System.in);
 
+    public ChangeableStr() {
+        ProcessedString ps = new ProcessedString();
+        stringIndGen(ps.received);
+    }
 
-    public void stringIndGen(String text) {
-        String indextext = "Введите индекс (введите 666, что бы выйти):";
-        String outputString = "";
+
+    public void stringIndGen(String str) {
+        String modifiedStr = "";
         char indexChar;
+
         while (true) {
-            System.out.println(indextext);
-            index = sc.nextInt();
-            if (index > (text.length() - 1)) verifyIndex(text);
+            index = checkIndex();
             if (index == 666) break;
-            indexChar = text.charAt(index);
-            outputString = outputString.concat(String.valueOf(indexChar));
-            System.out.println(outputString);
+            if (index > (str.length() - 1)) verifyIndex(str);
+            indexChar = str.charAt(index);
+            modifiedStr = modifiedStr.concat(String.valueOf(indexChar));
+            System.out.println(modifiedStr);
         }
-        System.out.println(spoofChar(text));
-        System.out.println(reverseString(text));
+
+        System.out.println(spoofChar(str));
+        System.out.println(reverseString(str));
+    }
+
+    private int checkIndex() {
+        String textGetIndex = "Введите индекс (введите 666, что бы выйти):";
+        String errGetIndex = "Ошибка! Попробуйте арабские цифры...";
+
+        System.out.println(textGetIndex);
+        while (true) {
+            try {
+                int index = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println(errGetIndex);
+                sc.next();
+            }
+        }
+        return index;
     }
 
     private void verifyIndex(String text) {
@@ -36,11 +60,6 @@ public class StringIndex {
         }
     }
 
-    /**
-     *
-     * @param text
-     * @return
-     */
     private String spoofChar(String text) {
         StringBuilder stringForSpoof = new StringBuilder(text);
         Scanner sc = new Scanner(System.in);
