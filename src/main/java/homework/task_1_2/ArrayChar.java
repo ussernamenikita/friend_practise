@@ -3,26 +3,19 @@ package homework.task_1_2;
 import java.util.Random;
 import java.util.Scanner;
 
-final class CreateArrayChar {
+final class ArrayChar {
     private static int startRange = 33;
     private static int finishRange = 94;
 
-    public CreateArrayChar() {
+    public ArrayChar() {
         genArray();
     }
 
     private void genArray() {
-        Scanner sc = new Scanner(System.in);
+        EnterData ed = new EnterData();
         Random random = new Random();
-        int num1 = 0;
-        int num2 = 0;
-        System.out.println("Задайте размеры двух массивов: ");
-        try {
-            num1 = sc.nextInt();
-            num2 = sc.nextInt();
-        } catch (Exception e) {
-            genArray();
-        }
+        int num1 = ed.gettingNumbersForSizeArray();
+        int num2 = ed.gettingNumbersForSizeArray();
         char[][] array = new char[num1][num2];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
