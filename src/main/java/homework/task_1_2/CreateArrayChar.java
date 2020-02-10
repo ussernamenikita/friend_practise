@@ -7,6 +7,7 @@ import java.util.Scanner;
 final class CreateArrayChar {
     private static int startRange = 33;
     private static int finishRange = 94;
+    //Имя переменных непонятны
     private int num1;
     private int num2;
 
@@ -21,6 +22,7 @@ final class CreateArrayChar {
         char[][] array = new char[num1][num2];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
+                //Переменная тут не обязательна можно сразу ячейке массива присваивать
                 char symbol = (char) (random.nextInt(finishRange) + startRange);
                 array[i][j] = symbol;
             }
