@@ -3,22 +3,37 @@ package homework.task_4;
 import java.util.Scanner;
 
 public class Recursion {
+    private final String GET_NUMBER = "Введите число: ";
     Scanner sc = new Scanner(System.in);
 
-    public int exponentiation(int num, int exp) {
-        int result;
-        result = (int) Math.pow(num, exp);
-        return result;
+    public void exponentiation() {
+        System.out.println(GET_NUMBER);
+        int num = sc.nextInt();
+        System.out.println("Введите степень:");
+        int exp = sc.nextInt();
+
+        int result = (int) Math.pow(num, exp);
+        System.out.println(result);
     }
 
-    public int fibonachi(int ind) {
-        if (ind <= 0) return 0;
-        if (ind == 1 || ind == 2) return 1;
-        return fibonachi(ind - 1) + fibonachi(ind - 2);
+    private int fibbonachiRecursion(int num) {
+        if (num <= 0) return 0;
+        if (num == 1 || num == 2) return 1;
+        return fibbonachiRecursion(num - 1) + fibbonachiRecursion(num - 2);
     }
 
-    public int countsNum (int num){
+    public void fibbonachi() {
+        System.out.println("Фибоначчи. " + "\n" + GET_NUMBER);
+        int num = sc.nextInt();
+        System.out.println(fibbonachiRecursion(num) + 1);
+
+    }
+
+    public void countsNum() {
+        System.out.println("Сколько цифр в числе." + "\n" + GET_NUMBER);
+        int num = sc.nextInt();
+
         int result = String.valueOf(Math.abs(num)).length();
-        return result;
+        System.out.println(result);
     }
 }
