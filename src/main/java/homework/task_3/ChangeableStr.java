@@ -6,25 +6,20 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ChangeableStr {
-
-    private int index;
     Scanner sc = new Scanner(System.in);
 
-    public ChangeableStr() {
-    }
-
-//Todo 0 index - 1
 
     public void stringIndGen() {
         String modifiedStr = "";
         char charByIndex;
         ProcessedString ps = new ProcessedString();
         String str = ps.received;
+        int index = 0;
 
         while (true) {
-            index = checkIndex();
+            index = checkIndex(index);
             if (index == 666) break;
-            if (index > (str.length() - 1)) verifyLengthIndex(str);
+            if (index > (str.length())) index = verifyLengthIndex(str, index);
             charByIndex = str.charAt(index);
             modifiedStr = modifiedStr.concat(String.valueOf(charByIndex));
             System.out.println(modifiedStr);
@@ -34,7 +29,7 @@ public class ChangeableStr {
         System.out.println(reverseString(str));
     }
 
-    private int checkIndex() {
+    private int checkIndex(int index) {
         String textGetIndex = "Введите индекс (введите 666, что бы выйти):";
         String errGetIndex = "Ошибка! Попробуйте арабские цифры...";
 
@@ -51,7 +46,7 @@ public class ChangeableStr {
         return index;
     }
 
-    private void verifyLengthIndex(String str) {
+    private int verifyLengthIndex(String str, int index) {
         String tooMany = "Слишком большое число, попробуйте не больше ";
         while (true) {
             System.out.println(tooMany + (str.length() - 1));
@@ -59,8 +54,10 @@ public class ChangeableStr {
             if (index == 666) break;
             if (index < (str.length())) break;
         }
+        return index;
     }
-//todo 1 обработать ошибку (String index out of range)
+
+    //todo 1 обработать ошибку (String index out of range)
     private String spoofChar(String text) {
         StringBuilder stringForSpoof = new StringBuilder(text);
         Scanner sc = new Scanner(System.in);
